@@ -5,10 +5,21 @@ import { User } from '../schema/user.entity';
 export class UserRepository {
   constructor(
     @Inject('USER')
-    private accountModel: typeof User,
+    private userModel: typeof User,
   ) {}
-  public async create() {
-    await this.accountModel.create({ tel: 'dsada', password: '09321323' });
-    return 'create';
+  public async create(body: any) {
+    const create = await this.userModel.create(body);
+    return create;
+  }
+
+  public async findByPrompPay(promptPay: string) {
+    try {
+      const data = await User.findOne({ where: { promptPay: promptPay } });
+      const result = data.dataValues;
+      console.log(result);
+      return result;
+    } catch (err) {
+      console.error(err);
+    }
   }
 }

@@ -7,8 +7,7 @@ export class RegisterController {
   constructor(private registerService: RegisterService) {}
   @Post('')
   async registerGet(@Body() body: IUserRegister) {
-    console.log('body', body);
-    const result = await this.registerService.register();
+    const result = await this.registerService.register(body);
     return result;
   }
 }
