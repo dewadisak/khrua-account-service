@@ -5,10 +5,10 @@ import { User } from '../schema/user.entity';
 export class UserRepository {
   constructor(
     @Inject('USER')
-    private usersModel: typeof User,
+    private accountModel: typeof User,
   ) {}
   public async create() {
-    await this.usersModel.create({ tel: 'dsada', password: '09321323' });
+    await this.accountModel.create({ tel: 'dsada', password: '09321323' });
     return 'create';
   }
 }
