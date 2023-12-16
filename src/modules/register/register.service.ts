@@ -6,7 +6,7 @@ import { UserRepository } from '../../repository/user.repository';
 export class RegisterService {
   constructor(private userRepository: UserRepository) {}
   public async register(body: IUserRegister) {
-    const duplicate = await this.userRepository.findByPrompPay(body.promptPay);
+    const duplicate = await this.userRepository.findByPromptPay(body.promptPay);
     if (duplicate) {
       return 'is exist';
     }

@@ -12,7 +12,7 @@ export class UserRepository {
     return create;
   }
 
-  public async findByPrompPay(promptPay: string) {
+  public async findByPromptPay(promptPay: string) {
     try {
       const data = await User.findOne({ where: { promptPay: promptPay } });
       const result = data.dataValues;
